@@ -3,9 +3,18 @@
 version: '3.7'
 services: 
   mysql:
-    image: mysql:8.0
+    platform: linux/x86_64
+    image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: "${DB_PASSWORD:-root}"
       MYSQL_DATABASE: "${DB_NAME:-test}"
     ports:
       - 3306:3306
+  phpmyadmin:
+    platform: linux/x86_64
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - 8080:80

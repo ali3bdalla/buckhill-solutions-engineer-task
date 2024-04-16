@@ -1,13 +1,11 @@
 // Update with your config settings.
-
+require('dotenv').config()
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
 module.exports = {
-
-
   development: {
-    client: process.env.DB_DRIVER || 'mysql',
+    client: process.env.DB_DRIVER,
     connection: {
       database: process.env.DB_NAME || '',
       user:     process.env.DB_USER || '',
@@ -25,7 +23,7 @@ module.exports = {
   },
 
   staging: {
-  client: process.env.DB_DRIVER || 'mysql',
+    client: process.env.DB_DRIVER,
     connection: {
       database: process.env.DB_NAME || '',
       user:     process.env.DB_USER || '',
@@ -43,7 +41,7 @@ module.exports = {
   },
 
   production: {
-client: process.env.DB_DRIVER || 'mysql',
+    client: process.env.DB_DRIVER,
     connection: {
       database: process.env.DB_NAME || '',
       user:     process.env.DB_USER || '',
